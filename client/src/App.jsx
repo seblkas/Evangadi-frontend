@@ -1,11 +1,12 @@
 import React from "react";
 import LandingLayOut from "./pages/LandingLayOut/LandingLayOut";
-
+import Home from "./pages/Home/Home";
 function App() {
 
   return (
     <>
-    <LandingLayOut />
+    {/* <LandingLayOut /> */}
+    <Home />
     </>
   );
 }

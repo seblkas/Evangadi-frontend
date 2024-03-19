@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react';
 import Header from '../../Components/Header/Header'
 import bg from "../../asset/images/bg-svg-f.svg"
 import Login from '../../Components/Login/Login'
 import SignUp from '../../Components/SignUp/SignUp'
 
 const LandingLayOut = () => {
+   const [currentPage, setcurrentPage] = useState("signUp")
   return (
     <section>
       <Header />
@@ -17,13 +18,14 @@ const LandingLayOut = () => {
           <section className='container d-md-flex pt-5 gap-5'>
              {/* form login/sign-up */}
           {/* <div className='col'> */}
+           {currentPage === "login" && <Login setcurrentPage={setcurrentPage}/> } 
+           {currentPage === "signUp" &&  <SignUp setcurrentPage={setcurrentPage} /> }
+             
             
-             {/* <Login /> */}
-             <SignUp />
             
           
           {/* welcome message */}
-          <div className='col'>
+          <div className='col mt-5'>
            <p className='text-warning fw-semibold'>About</p>
            <h1 className='fw-bold'>Evangadi Networks Q&A</h1>
            <div className='d-flex flex-column gap-4 fs-5 '>
