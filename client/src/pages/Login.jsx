@@ -30,7 +30,8 @@ function Login() {
 
       });
       alert('login successfull.');
-      navigate('/home');
+      localStorage.setItem("token", response.token)
+      navigate('/');
       console.log(response);
 
     }catch(error) {
