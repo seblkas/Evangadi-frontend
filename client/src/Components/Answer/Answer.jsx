@@ -22,8 +22,10 @@ const Answer = () => {
   const description = queryParams.get("description");
 
   const questionid = queryParams.get("questionid");
+  console.log(questionid)
 
   const { user } = useContext(AppState);
+  console.log(user)
 
   //  console.log(questionid,user.userid)
 
@@ -36,7 +38,9 @@ const Answer = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const answerValue = answerDom.current.value;
-    const userid = user.userid;
+    const userid = user.usersid;
+    console.log(userid)
+    console.log(answerValue)
 
     if (!questionid || !userid || !answerValue) {
       alert("please provide all required fields");
@@ -47,9 +51,8 @@ const Answer = () => {
       await axios.post(
         "/answers/postanswers",
         {
-          userid: userid,
+          usersid: userid,
           questionid: questionid,
-
           answer: answerValue,
         },
         {

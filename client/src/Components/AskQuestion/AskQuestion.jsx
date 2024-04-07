@@ -26,12 +26,14 @@ const AskQuestion = ({user}) => {
     const titleValue = titleDom.current.value;
     const descriptionValue = descriptionDom.current.value;
     const tagValue = tagDom.current.value;
+    const questionid = uuidv4();
     const userid =   user.usersid;
 
    console.log(userid);
-
-    const questionid = uuidv4();
-    console.log(questionid)
+   console.log(questionid);
+    console.log(tagValue);
+    console.log(titleValue);
+    console.log(descriptionValue);
     
     
 
@@ -51,7 +53,7 @@ const AskQuestion = ({user}) => {
       const response = await axios.post("/question/postquestions",
         {
           questionid: questionid,
-          userid: userid,
+          usersid: userid,
           title: titleValue,
           description: descriptionValue,
           tag: tagValue,
@@ -67,9 +69,6 @@ const AskQuestion = ({user}) => {
       tagDom.current.value = "";
       console.log(response, "response");
 
-      //  if(response.status==201){
-      //   setMessage(response.data.msg)
-      //  }
       notifySuccess()
       setTimeout(() => {
         navigate("/");
