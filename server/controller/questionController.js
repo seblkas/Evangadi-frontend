@@ -2,8 +2,9 @@ const dbConnection = require("../db/dbConfig");
 
 async function postQuestion(req, res) {
   const { questionid, usersid, title, description, tag } = req.body;
+
   if (!questionid || !usersid || !title || !description || !tag) {
-    return res.status(400).json({ msg: "please provide all required fields" });
+    return res.status(400).json({ msg: "please provide all required fields...." });
   }
 
   try {

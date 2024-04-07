@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRoutes);
 
 // question midlewere
-app.use("/api/questions", authMiddleware, questionRoutes);
+app.use("/api/question", authMiddleware, questionRoutes);
 
 // answer midlewer
 app.use("/api/answers", authMiddleware, answerRoutes);
